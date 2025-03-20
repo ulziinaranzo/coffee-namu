@@ -1,101 +1,167 @@
-import Image from "next/image";
+"use client";
+import { useState, useEffect } from "react";
+import { MenuIcon } from "./assets/MenuIcon";
+import { BonusIcon } from "./assets/Bonus-Icon";
+import { ShoppingIcon } from "./assets/Shopping-Icon";
+import { NextIcon } from "./assets/Next-Icon";
+import { RightIcon } from "./assets/Right-Icon";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.js
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="flex h-fit w-[1440px] m-auto flex-col">
+      <div className="flex pl-[80px] pr-[80px] justify-between">
+        <div className="flex gap-[8px] pt-[24px] pb-[24px]">
+          <img src="/Images/image 20.png" className="h-[62px] w-[62px]" />
+          <div className="flex flex-col text-[20px]">
+            <div className="font-[700]">coffee namu </div>
+            <div>mongolia</div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+        <div className="flex gap-[50px]">
+          <div className="flex pt-[46.5px] pb-[29.5px] gap-[24px]">
+            <div className="flex gap-[4px]">
+              <MenuIcon />
+              <div className="text-[16px]">Меню</div>
+            </div>
+            <div className="flex gap-[4px]">
+              <BonusIcon />
+              <div className="text-[16px]">Бонус</div>
+            </div>
+            <div className="flex gap-[4px]">
+              <ShoppingIcon />
+              <div className="text-[16px]">Захиалга</div>
+            </div>
+          </div>
+          <div className="flex gap-[24px] pt-[32px] pb-[32px]">
+            <button className="border items-center justify-center border-[#AA714A] pt-[14.5px] pb-[14.5px] pl-[14.5px] pr-[14.5px] text-[#AA714A] text-[16px] rounded-[15px]">
+              Нэвтрэх
+            </button>
+            <button className="border items-center justify-center border-[#AA714A] pt-[14.5px] bg-[#AA714A] pb-[14.5px] pl-[14.5px] pr-[14.5px] text-[white] text-[16px] rounded-[15px]">
+              Бүртгүүлэх
+            </button>
+          </div>
+        </div>
+      </div>
+      <div className="flex relative">
+        <img src="/Images/image 10.png" className="w-full h-531px" />
+        <div className="flex absolute z-1 right-[162px] top-[167.62px] flex-col w-[203.62px] text-[31.5px] text-[white] font-[700] ">
+          Яг одоо захиалаад авах.
+        </div>
+        <button className="flex absolute z-2 right-[225.12px] bottom-[152.12px] border items-center justify-center border-[#AA714A] bg-[white] p-[14.5px] text-[#AA714A] text-[18px] rounded-[5.6px] gap-[4.5px]">
+          Захиалах <NextIcon />
+        </button>
+      </div>
+      <div className="flex justify-center items-center pt-[50px] pb-[50px] w-full ">
+        <div className="flex relative rounded-[15px] bg-[#F8F1E7] w-[1280px] h-[472px]">
+          <img
+            src="/Images/iced_mocha-removebg-preview 1.png"
+            className="absolute top-[36px] w-[446px] h-[442px] z-3"
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
+          <img
+            src="/Images/10-removebg-preview 1.png"
+            className="absolute left-[277px] top-[107px] w-[389px] h-[389px] z-3"
           />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
+          <img
+            src="/Images/Homescreen-portrait 1.png"
+            className="absolute z-10 top-[36px] left-[217px]"
           />
-          Go to nextjs.org →
-        </a>
-      </footer>
+          <div className="flex items-start flex-col absolute right-[140px] top-[68px] w-[419px]">
+            <div className="flex flex-col font-[700] text-[32px] text-[#AA714A] w-[329px] mr-[90px]">
+              Үнэгүй кофе авахад илүү амар боллоо.
+            </div>
+            <div className="flex flex-col w-[419px] mt-[27px]">
+              <b>Coffee namu app</b> -Урамшууллын апп татаж аваад, дуртай зүйлээ
+              хаанаас ч, хэзээ ч хамаагүй захиалаарай.
+            </div>
+            <button className="flex border items-center justify-center border-[#AA714A] bg-[white] pt-[14.5px] pb-[14.5px] pl-[14.5px] pr-[14.5px] text-[#AA714A] text-[20px] rounded-[5.6px] gap-[4.5px] 2-[173px] mt-[60px]">
+              Апп татах
+              <NextIcon />
+            </button>
+          </div>
+        </div>
+      </div>
+      <div className="flex flex-col justify-center items-center pt-[40px] pl-[80px] gap-[19px]">
+        <div className="font-[600] text-[32px]">Онцлох бүтээгдэхүүн</div>
+        <div className="font-[500] text-[16px]">
+          Энэ сарын онцлох, дуусахаас өмнө захиалаарай!
+        </div>
+        <div className="flex gap-[20px] mt-[35px] mb-[92px]">
+          <div className="flex flex-col items-center gap-[8px]">
+            <img
+              src="/Images/image.png"
+              className="w-[305px] h-[295px] rounded-[15px]"
+            />
+            <div className="font-[16px] text-[16px] font-[600]">
+              affogato 7.9
+            </div>
+          </div>
+          <div className="flex flex-col items-center gap-[8px]">
+            <img
+              src="/Images/image (1).png"
+              className="w-[305px] h-[295px] rounded-[15px]"
+            />
+            <div className="font-[16px] text-[16px] font-[600]">
+              green tea smoothie
+            </div>
+          </div>
+          <div className="flex flex-col items-center gap-[8px]">
+            <img
+              src="/Images/image (2).png"
+              className="w-[305px] h-[295px] rounded-[15px]"
+            />
+            <div className="font-[16px] text-[16px] font-[600]">
+              iced grapefruit tea
+            </div>
+          </div>
+          <div className="flex flex-col items-center gap-[8px]">
+            <img
+              src="/Images/image(3).png"
+              className="w-[305px] h-[295px] rounded-[15px]"
+            />
+            <div className="font-[16px] text-[16px] font-[600]">iced mocha</div>
+          </div>
+        </div>
+      </div>
+      <div className="flex items-start h-[361px] justify-center items-center pt-[27px] pb-[100px] bg-[#F8F1E7]">
+        <img src="/Images/image 20.png" className="h-62px w-62px" />
+        <div className="flex flex-col gap-[19px] mb-[53px] mt-[32px]">
+          <div className="text-[24px] font-[700] text-[#28282A]">
+            coffee namu mongolia
+          </div>
+          <div className="flex text-[18px] font-[400px] text-[#28282A] w-[400px]">
+            Утас: (976)7772-4422 coffeenamumongolia@gmail.com
+          </div>
+          <div className="mt-[53px]">
+            <img src="/Images/social icons.png" />
+          </div>
+        </div>
+        <div className="flex flex-col gap-[25px] font-[700] ml-[287px]">
+          <div className="flex text-[20px]">Бидний тухай</div>
+          <div className="flex gap-[5px]">
+            <RightIcon />
+            Байгууллага
+          </div>
+          <div className="flex gap-[5px]">
+            <RightIcon />
+            Бүтээгдхүүн
+          </div>
+        </div>
+        <div className="flex flex-col gap-[25px] font-[700] ml-[186px]">
+          <div className="flex text-[20px]">Захиалга</div>
+          <div className="flex gap-[5px]">
+            <RightIcon />
+            Аппликэйшн
+          </div>
+          <div className="flex gap-[5px]">
+            <RightIcon />
+            Урамшуулал
+          </div>
+          <div className="flex gap-[5px]">
+            <RightIcon />
+            Салбарууд
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
