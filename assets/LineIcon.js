@@ -17,8 +17,8 @@ export const LineIcon = () => {
           y2="637"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#E0E0E1" />
-          <stop offset="1" stop-color="#E0E0E1" stop-opacity="0" />
+          <stop stopColor="#E0E0E1" />
+          <stop offset="1" stopColor="#E0E0E1" stopOpacity="0" />
         </linearGradient>
       </defs>
     </svg>

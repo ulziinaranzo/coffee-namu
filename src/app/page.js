@@ -1,10 +1,11 @@
 "use client";
 import { useState, useEffect } from "react";
-import { MenuIcon } from "./assets/MenuIcon";
-import { BonusIcon } from "./assets/Bonus-Icon";
-import { ShoppingIcon } from "./assets/Shopping-Icon";
-import { NextIcon } from "./assets/Next-Icon";
-import { RightIcon } from "./assets/Right-Icon";
+import { MenuIcon } from "../../assets/MenuIcon";
+import { BonusIcon } from "../../assets/IconBonus";
+import { ShoppingIcon } from "../../assets/ShoppingIcon";
+import { NextIcon } from "../../assets/NextIcon";
+import { RightIcon } from "../../assets/RightIcon";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -21,7 +22,9 @@ export default function Home() {
           <div className="flex pt-[46.5px] pb-[29.5px] gap-[24px]">
             <div className="flex gap-[4px]">
               <MenuIcon />
-              <div className="text-[16px]">Меню</div>
+              <Link href={"/menu"}>
+                <div className="text-[16px]">Меню</div>
+              </Link>
             </div>
             <div className="flex gap-[4px]">
               <BonusIcon />
