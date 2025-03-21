@@ -8,6 +8,14 @@ import { RightIcon } from "../../assets/RightIcon";
 import Link from "next/link";
 
 export default function Home() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const images = [
+    {
+      img: "/Images/Homescreen Image order.png",
+      img: "/Images/Homescreen Image order (1).png",
+    },
+  ];
   return (
     <div className="flex h-fit w-[1440px] m-auto flex-col">
       <div className="flex pl-[80px] pr-[80px] justify-between">
@@ -28,11 +36,15 @@ export default function Home() {
             </div>
             <div className="flex gap-[4px]">
               <BonusIcon />
-              <div className="text-[16px]">Бонус</div>
+              <Link href={"/bonus"}>
+                <div className="text-[16px]">Бонус</div>
+              </Link>
             </div>
             <div className="flex gap-[4px]">
               <ShoppingIcon />
-              <div className="text-[16px]">Захиалга</div>
+              <Link href={"/order"}>
+                <div className="text-[16px]">Захиалга</div>
+              </Link>
             </div>
           </div>
           <div className="flex gap-[24px] pt-[32px] pb-[32px]">
@@ -46,13 +58,25 @@ export default function Home() {
         </div>
       </div>
       <div className="flex relative">
-        <img src="/Images/image 10.png" className="w-full h-531px" />
-        <div className="flex absolute z-1 right-[162px] top-[167.62px] flex-col w-[203.62px] text-[31.5px] text-[white] font-[700] ">
-          Яг одоо захиалаад авах.
+        <div
+          className="relative  transition-transform duration-500"
+          style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+        >
+          <img
+            src="/Images/Homescreen Image order.png"
+            className="w-full h-[531px]"
+          />
+          <img
+            src="/Images/Homescreen Image order (1).png"
+            className="w-full h-[531px]"
+          />
+          <div className="flex absolute z-1 right-[162px] top-[167.62px] flex-col w-[203.62px] text-[31.5px] text-[white] font-[700] ">
+            Яг одоо захиалаад авах.
+          </div>
+          <button className="flex absolute z-2 right-[225.12px] bottom-[152.12px] border items-center justify-center border-[#AA714A] bg-[white] p-[14.5px] text-[#AA714A] text-[18px] rounded-[5.6px] gap-[4.5px]">
+            Захиалах <NextIcon />
+          </button>
         </div>
-        <button className="flex absolute z-2 right-[225.12px] bottom-[152.12px] border items-center justify-center border-[#AA714A] bg-[white] p-[14.5px] text-[#AA714A] text-[18px] rounded-[5.6px] gap-[4.5px]">
-          Захиалах <NextIcon />
-        </button>
       </div>
       <div className="flex justify-center items-center pt-[50px] pb-[50px] w-full ">
         <div className="flex relative rounded-[15px] bg-[#F8F1E7] w-[1280px] h-[472px]">

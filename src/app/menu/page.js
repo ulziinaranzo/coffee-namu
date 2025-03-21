@@ -9,23 +9,47 @@ import { RefreshIcon } from "../../../assets/RefreshIcon";
 import { LineIcon } from "../../../assets/LineIcon";
 import { HeartClickIcon } from "../../../assets/HeartClickIcon";
 import { FilledHeartIcon } from "../../../assets/FilledHeartIcon";
+import Link from "next/link";
+import { MenuIconBrown } from "../../../assets/MenuIconBrown";
 
 const Menu = () => {
-  const [heart, setHeart] = useState(false);
+  const [favorites, setFavorites] = useState({});
+
+  const switchFavorite = (itemName) => {
+    setFavorites((prev) => ({
+      ...prev,
+      [itemName]: !prev[itemName],
+    }));
+  };
+  const items = [
+    { name: "iced americano", img: "/Images/iced-americano.png" },
+    { name: "iced latte", img: "/Images/iced-latte.png" },
+    { name: "iced machhiato", img: "/Images/machhiato.png" },
+    { name: "iced mocha", img: "/Images/mocha.png" },
+    { name: "espresso", img: "/Images/esspresso.png" },
+    { name: "affogato", img: "/Images/affogato.png" },
+  ];
+
+  const toggleHeart = (item) => {
+    setHeart((prevState) => ({ ...prevState }));
+  };
   return (
     <div className="flex h-fit w-[1440px] m-auto flex-col">
       <div className="flex pl-[80px] pr-[80px] justify-between">
-        <div className="flex gap-[8px] pt-[24px] pb-[24px]">
-          <img src="/Images/image 20.png" className="h-[62px] w-[62px]" />
-          <div className="flex flex-col text-[20px]">
-            <div className="font-[700]">coffee namu </div>
-            <div>mongolia</div>
+        <Link href={"/"}>
+          <div className="flex gap-[8px] pt-[24px] pb-[24px]">
+            <img src="/Images/image 20.png" className="h-[62px] w-[62px]" />
+            <div className="flex flex-col text-[20px]">
+              <div className="font-[700]">coffee namu </div>
+              <div>mongolia</div>
+            </div>
           </div>
-        </div>
+        </Link>
+
         <div className="flex gap-[50px]">
-          <div className="flex pt-[46.5px] pb-[29.5px] gap-[24px]">
-            <div className="flex  underline text-[#AA714A] font-bold gap-[4px]">
-              <MenuIcon />
+          <div className="flex pt-[46.5px] gap-[24px]">
+            <div className="flex text-[#AA714A] font-bold gap-[4px] border-b-3">
+              <MenuIconBrown />
               <div className="text-[16px]">Меню</div>
             </div>
             <div className="flex gap-[4px]">
@@ -48,9 +72,9 @@ const Menu = () => {
         </div>
       </div>
       <div className="flex h-[79px] pl-[80px] pt-[29px] pb-[31px] bg-[#F2F2F3] gap-[24px] font-[600]">
-        <div className="flex underline text-[#AA714A] gap-[2px] ">
-          <MenuIcon />
-          <div className="text-[16px]">Меню</div>
+        <div className="flex  text-[#AA714A] gap-[2px] border-b-3">
+          <MenuIconBrown />
+          <div className="text-[16px] ">Меню</div>
         </div>
         <div className="flex text-[black] text-[16px] gap-[2px]">
           <StarIcon /> <div className="text-[16px]">Онцлох</div>
@@ -74,93 +98,30 @@ const Menu = () => {
         </div>
 
         <div className="flex flex-wrap w-fit gap-[20px] font-[600]">
-          <div className="flex relative flex-col justify-center items-center gap-[8px]">
-            <img
-              className="w-[305px] h-[295px] rounded-[15px]"
-              src="/Images/iced-americano.png"
-            />
-            <div className="absolute right-[21px] top-[16px] z-10">
-              <HeartClickIcon
-                onclick={() => {
-                  setHeart(true);
-                }}
+          {items.map((item) => (
+            <div
+              className="flex relative flex-col justify-center items-center gap-[8px]"
+              key={item.name}
+            >
+              <img
+                className="w-[305px] h-[295px] rounded-[15px]"
+                src={item.img}
               />
-            </div>
-            {heart && (
-              <div className="absolute right-[21px] top-[16px] z-10">
-                <FilledHeartIcon />
+              <div
+                className="absolute right-[21px] top-[16px] z-10"
+                onClick={() => switchFavorite(item.name)}
+              >
+                {favorites[item.name] ? (
+                  <FilledHeartIcon />
+                ) : (
+                  <HeartClickIcon />
+                )}
               </div>
-            )}
-            <div className="text-[20px] font-[600px] text-[#28282A]">
-              iced americano
-            </div>
-          </div>
-          <div className="flex relative flex-col justify-center items-center gap-[8px]">
-            <img
-              className="w-[305px] h-[295px] rounded-[15px]"
-              src="/Images/iced-latte.png"
-            />
-            <div className="absolute right-[21px] top-[16px] z-10">
-              <HeartClickIcon />
-            </div>
-            <div className="text-[20px] font-[600px] text-[#28282A]">
-              iced latte
-            </div>
-          </div>
-          <div className="flex relative flex-col justify-center items-center gap-[8px]">
-            <img
-              className="w-[305px] h-[295px] rounded-[15px]"
-              src="/Images/machhiato.png"
-            />
-            <div className="absolute right-[21px] top-[16px] z-10">
-              <HeartClickIcon />
-            </div>
-            <div className="text-[20px] font-[600px] text-[#28282A]">
-              iced machhiato
-            </div>
-          </div>
-          <div className="flex relative flex-col justify-center items-center gap-[8px]">
-            <img
-              className="w-[305px] h-[295px] rounded-[15px]"
-              src="/Images/mocha.png"
-            />
-            <div className="absolute right-[21px] top-[16px] z-10">
-              <HeartClickIcon />
-            </div>
-            <div className="text-[20px] font-[600px] text-[#28282A]">
-              iced mocha
-            </div>
-          </div>
-          <div className="flex relative flex-col justify-center items-center gap-[8px]">
-            <img
-              className="w-[305px] h-[295px] rounded-[15px]"
-              src="/Images/esspresso.png"
-            />
-            <div className="absolute right-[21px] top-[16px] z-10">
-              <HeartClickIcon />
-            </div>
-            <div className="flex gap-[48px]">
               <div className="text-[20px] font-[600px] text-[#28282A]">
-                esspresso
+                {item.name}
               </div>
-              <div className="text-[20px] font-[600px] text-[#28282A]">6.5</div>
             </div>
-          </div>
-          <div className="flex relative flex-col justify-center items-center gap-[8px]">
-            <img
-              className="w-[305px] h-[295px] rounded-[15px]"
-              src="/Images/affogato.png"
-            />
-            <div className="absolute right-[21px] top-[16px] z-10">
-              <HeartClickIcon />
-            </div>
-            <div className="flex gap-[48px]">
-              <div className="text-[20px] font-[600px] text-[#28282A]">
-                affogato
-              </div>
-              <div className="text-[20px] font-[600px] text-[#28282A]">7.9</div>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </div>
